@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "okramod",
+  "version": "${version}",
+
+  "name": "Okra Mod",
+  "description": "Adds Okra as a crop in base game",
+  "authors": [
+    "kamisama"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": ""
+  },
+
+  "license": "MIT License",
+  "icon": "assets/okramod/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.kamisama.okramod.OkraMod"
+    ],
+    "client": [
+      "net.kamisama.okramod.OkraModClient"
+    ]
+  },
+  "mixins": [
+    "okramod.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.6",
+    "fabric": "*",
+    "minecraft": "~1.19",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
