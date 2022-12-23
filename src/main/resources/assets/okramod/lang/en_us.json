@@ -1,6 +1,6 @@
 {
-  "item.okramod.okra_seeds": "Speximen",
-  "item.okramod.okra": "Bhindi",
+  "item.okramod.okra_seeds": "Okra Seeds",
+  "item.okramod.okra": "Okra",
 
-  "itemGroup.okramod.okra_craft_group": "Bhindi Craft"
+  "itemGroup.okramod.okra_craft_group": "Okra Craft"
 }
