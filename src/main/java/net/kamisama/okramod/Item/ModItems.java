@@ -17,7 +17,7 @@ public class ModItems {
     public static final Item OKRA = registerItem("okra",
             new Item(new FabricItemSettings().group(ModItemsGroup.OKRA_CRAFT).food(new FoodComponent.Builder().hunger(1).saturationModifier(1f).build())));
     public static final Item VEGGIE_KNIFE = registerItem("veggie_knife",
-            new VeggieKnifeItem(new FabricItemSettings().group(ModItemsGroup.OKRA_CRAFT).maxCount(1)));
+            new VeggieKnifeItem(new FabricItemSettings().group(ModItemsGroup.OKRA_CRAFT).maxCount(1).maxDamage(1024)));
 
 
     private static Item registerItem(String name, Item item) {
