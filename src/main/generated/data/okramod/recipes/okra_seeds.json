@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "okramod:okra"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "okramod:okra_seeds"
+  }
+}
