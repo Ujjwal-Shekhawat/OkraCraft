@@ -28,6 +28,6 @@ public class ModLootTableGeneration extends SimpleFabricLootTableProvider {
     @Override
     public void accept(BiConsumer<Identifier, LootTable.Builder> identifierBuilderBiConsumer) {
         identifierBuilderBiConsumer.accept(new Identifier("minecraft", "blocks/grass"),
-                LootTable.builder().pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F)).with(ItemEntry.builder(ModItems.OKRA_SEEDS).conditionally(RandomChanceLootCondition.builder(0.125f)).alternatively(ItemEntry.builder(Items.WHEAT_SEEDS).conditionally(RandomChanceLootCondition.builder(1f))))));
+                LootTable.builder().pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F)).with(ItemEntry.builder(ModItems.OKRA_SEEDS).conditionally(RandomChanceLootCondition.builder(0.125f)).alternatively(ItemEntry.builder(Items.WHEAT_SEEDS).conditionally(RandomChanceLootCondition.builder(0.125f))))));
     }
 }
