@@ -55,7 +55,7 @@ public class VeggieKnifeItem extends Item {
                         (p) -> p.sendToolBreakStatus(p.getActiveHand()));
             }
         } else {
-            player.sendMessage(Text.literal("No veggie on left hand!" + playerInventory.main.get(playerInventory.selectedSlot).getDamage()));
+            player.sendMessage(Text.literal("No veggie on left hand! (Should I switch hands for this implementation?)" + playerInventory.main.get(playerInventory.selectedSlot).getDamage()));
         }
     }
 
