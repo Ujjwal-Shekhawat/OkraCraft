@@ -15,8 +15,9 @@ import net.minecraft.util.registry.Registry;
 public class ModBlocks {
 
 
-    public static final Block OKRA_CROP = registerBlockWithoutItemGroup("okra_crop", new OkraCropBlock(FabricBlockSettings.copy(Blocks.WHEAT)));
-    
+    public static final Block OKRA_CROP = registerBlockWithoutItemGroup("okra_crop",
+            new OkraCropBlock(FabricBlockSettings.copy(Blocks.WHEAT)));
+
 
     private static Block registerBlock(String name, Block block, ItemGroup tab) {
         registerBlockItem(name, block, tab);
@@ -28,7 +29,8 @@ public class ModBlocks {
     }
 
     private static Item registerBlockItem(String name, Block block, ItemGroup tab) {
-        return Registry.register(Registry.ITEM, new Identifier(OkraMod.MOD_ID, name), new BlockItem(block, new FabricItemSettings().group(tab)));
+        return Registry.register(Registry.ITEM, new Identifier(OkraMod.MOD_ID, name), new BlockItem(block,
+                new FabricItemSettings().group(tab)));
     }
 
     public static void registerModBlocks() {
