@@ -9,15 +9,13 @@ import net.minecraft.data.server.BlockLootTableGenerator;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
-import net.minecraft.loot.condition.LootConditionManager;
-import net.minecraft.loot.condition.LootConditionType;
-import net.minecraft.loot.condition.LootConditionTypes;
+import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
-import net.minecraft.loot.provider.number.UniformLootNumberProvider;
+import net.minecraft.predicate.StatePredicate;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 
 import java.util.function.BiConsumer;
@@ -34,6 +32,7 @@ public class ModLootTableGeneration extends SimpleFabricLootTableProvider {
 
         identifierBuilderBiConsumer.accept(new Identifier(OkraMod.MOD_ID, "blocks/okra_crop"),
                 BlockLootTableGenerator.cropDrops(ModBlocks.OKRA_CROP, ModItems.OKRA, ModItems.OKRA_SEEDS,
-                        RandomChanceLootCondition.builder(1f)));
+                        BlockStatePropertyLootCondition.builder(ModBlocks.OKRA_CROP).properties(StatePredicate.Builder.create().exactMatch(Properties.AGE_3, 3))));
     }
+
 }
