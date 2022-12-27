@@ -3,10 +3,13 @@ package net.kamisama.okramod.Item.Custom;
 import net.kamisama.okramod.Item.ModItems;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.SwordItem;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
@@ -16,9 +19,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class VeggieKnifeItem extends Item {
-    public VeggieKnifeItem(Settings settings) {
-        super(settings);
+public class VeggieKnifeItem extends SwordItem {
+
+
+    public VeggieKnifeItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
+        super(toolMaterial, attackDamage, attackSpeed, settings);
     }
 
     @Override
@@ -28,6 +33,19 @@ public class VeggieKnifeItem extends Item {
             user.getItemCooldownManager().set(this, 20);
         }
         return super.use(world, user, hand);
+    }
+
+    @Override
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        stack.damage(100, attacker, (e) -> {
+            e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
+        });
+        return true;
+    }
+
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return false;
     }
 
     private void sliceVeggies(PlayerEntity player, Hand hand) {
@@ -55,7 +73,8 @@ public class VeggieKnifeItem extends Item {
                         (p) -> p.sendToolBreakStatus(p.getActiveHand()));
             }
         } else {
-            player.sendMessage(Text.literal("No veggie on left hand! (Should I switch hands for this implementation?)" + playerInventory.main.get(playerInventory.selectedSlot).getDamage()));
+            player.sendMessage(Text.literal("No veggie on left hand! (Should I switch hands for this implementation?)"
+                    + playerInventory.main.get(playerInventory.selectedSlot).getDamage()));
         }
     }
 
