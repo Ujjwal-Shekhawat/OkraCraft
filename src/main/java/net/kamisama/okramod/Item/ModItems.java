@@ -17,6 +17,12 @@ public class ModItems {
             new FabricItemSettings().group(ModItemsGroup.OKRA_CRAFT)));
     public static final Item OKRA = registerItem("okra",
             new Item(new FabricItemSettings().group(ModItemsGroup.OKRA_CRAFT).food(new FoodComponent.Builder().hunger(1).saturationModifier(1f).build())));
+
+    public static final Item SLICED_OKRA = registerItem("sliced_okra",
+            new Item(new FabricItemSettings().group(ModItemsGroup.OKRA_CRAFT)));
+
+    public static final Item COOKED_OKRA = registerItem("cooked_okra",
+            new Item(new FabricItemSettings().group(ModItemsGroup.OKRA_CRAFT).food(new FoodComponent.Builder().hunger(8).saturationModifier(4f).build())));
     public static final Item VEGGIE_KNIFE = registerItem("veggie_knife",
             new VeggieKnifeItem(ToolMaterials.IRON, 0, 0.1f,
                     new FabricItemSettings().group(ModItemsGroup.OKRA_CRAFT).maxCount(1).maxDamage(1024)));
