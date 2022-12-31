@@ -58,7 +58,7 @@ public class VeggieKnifeItem extends SwordItem {
             // case handling where durability is not sufficient
             if (2 * okraCount > remaining_Durability) {
                 playerInventory.offHand.clear();
-                playerInventory.offHand.set(0, new ItemStack(ModItems.OKRA_SEEDS,
+                playerInventory.offHand.set(0, new ItemStack(ModItems.SLICED_OKRA,
                         okraCount - (((2 * okraCount) - remaining_Durability) / 2)));
 
                 playerInventory.main.get(playerInventory.selectedSlot).damage(2 * okraCount, player,
@@ -67,7 +67,7 @@ public class VeggieKnifeItem extends SwordItem {
                 playerInventory.main.set(playerInventory.selectedSlot, new ItemStack(ModItems.OKRA,
                         ((2 * okraCount) - remaining_Durability) / 2));
             } else {
-                playerInventory.offHand.set(0, new ItemStack(ModItems.OKRA_SEEDS, okraCount));
+                playerInventory.offHand.set(0, new ItemStack(ModItems.SLICED_OKRA, okraCount));
 
                 playerInventory.main.get(playerInventory.selectedSlot).damage(2 * okraCount, player,
                         (p) -> p.sendToolBreakStatus(p.getActiveHand()));

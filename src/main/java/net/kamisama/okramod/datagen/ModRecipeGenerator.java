@@ -7,6 +7,7 @@ import net.minecraft.data.server.RecipeProvider;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.CookingRecipeSerializer;
 import net.minecraft.util.Identifier;
 
 import java.util.function.Consumer;
@@ -18,7 +19,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
 
     @Override
     protected void generateRecipes(Consumer<RecipeJsonProvider> exporter) {
-        //example generator
+        //example generator: Remove this later
         offerReversibleCompactingRecipes(exporter, ModItems.OKRA_SEEDS, ModItems.OKRA);
 
         // veggie knife recipe
@@ -27,5 +28,15 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 RecipeProvider.conditionsFromItem(Items.IRON_INGOT)).criterion(RecipeProvider.hasItem(Items.STICK),
                 RecipeProvider.conditionsFromItem(Items.STICK)).offerTo(exporter,
                 new Identifier(RecipeProvider.getRecipeName(ModItems.VEGGIE_KNIFE)));
+
+        offerCookingRecipe(exporter, "campfire_cooking", CookingRecipeSerializer.CAMPFIRE_COOKING, 20 * 30,
+                ModItems.SLICED_OKRA,
+                ModItems.COOKED_OKRA, 0.1f);
+
+        offerCookingRecipe(exporter, "smoking", CookingRecipeSerializer.SMOKING, 20 * 30, ModItems.SLICED_OKRA,
+                ModItems.COOKED_OKRA, 0.1f);
+
+        offerCookingRecipe(exporter, "furnace", CookingRecipeSerializer.SMELTING, 20 * 15, ModItems.SLICED_OKRA,
+                ModItems.COOKED_OKRA, 0.1f);
     }
 }
